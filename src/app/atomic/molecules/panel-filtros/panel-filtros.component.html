@@ -1,0 +1,99 @@
+<p-card header="Panel de Filtros">
+    <form [formGroup]="myForm">
+        <div class="grid">
+            <div class="sm:col-12 md:col-12 lg:col-6 xl:col-6">
+                <label>Usuario</label>
+                <p-inputGroup>
+                    <p-inputGroupAddon>
+                        <i class="pi pi-user"></i>
+                    </p-inputGroupAddon>
+                    <input
+                        pInputText
+                        placeholder="Usuario"
+                        formControlName="username"/>
+                </p-inputGroup>
+            </div>
+            <div class="sm:col-12 md:col-12 lg:col-6 xl:col-6">
+                <label>Correo</label>
+                <p-inputGroup>
+                    <p-inputGroupAddon>
+                        <i class="pi pi-at"></i>
+                    </p-inputGroupAddon>
+                    <input
+                        pInputText
+                        placeholder="Correo Electrónico"
+                        formControlName="email"/>
+                </p-inputGroup>
+            </div>
+            <div class="sm:col-12 md:col-12 lg:col-6 xl:col-6">
+                <label>Nombres</label>
+                <p-inputGroup>
+                    <p-inputGroupAddon>
+                        <i class="pi pi-language"></i>
+                    </p-inputGroupAddon>
+                    <input
+                        pInputText
+                        placeholder="Nombres"
+                        formControlName="names"/>
+                </p-inputGroup>
+            </div>
+            <div class="sm:col-12 md:col-12 lg:col-6 xl:col-6">
+                <label>Apellidos</label>
+                <p-inputGroup>
+                    <p-inputGroupAddon>
+                        <i class="pi pi-language"></i>
+                    </p-inputGroupAddon>
+                    <input
+                        pInputText
+                        placeholder="Apellidos"
+                        formControlName="lastnames"/>
+                </p-inputGroup>
+            </div>
+            <div class="sm:col-12 md:col-12 lg:col-6 xl:col-6 col-gender">
+                <label>Género</label><br>
+                <p-radioButton 
+                    name="gender" 
+                    value="male"
+                    formControlName="gender"/>
+                <label for="gender1" class="ml-2">
+                    <i class="pi pi-mars"></i>
+                </label>
+                <p-radioButton 
+                    name="gender" 
+                    value="female"
+                    formControlName="gender"/>
+                <label for="gender2" class="ml-2">
+                    <i class="pi pi-venus"></i>
+                </label>
+            </div>
+            <div class="sm:col-12 md:col-12 lg:col-6 xl:col-6">
+                <label>Celular</label>
+                <p-inputMask 
+                    mask="999-999-9999" 
+                    placeholder="999-999-9999"
+                    formControlName="cell"/>
+            </div>
+        </div>
+    </form>
+    <ng-template pTemplate="footer">
+        <div class="grid flex justify-content-end">
+            <div class="col-12 sm:col-12 md:col-12 lg:col-4 xl:col-4">
+                <p-button
+                    icon="pi pi-filter-slash"
+                    severity="secondary"
+                    class="w-full"
+                    styleClass="w-full"
+                    pTooltip="Limpiar Filtros"
+                    (click)="resetFilter();"/>
+            </div>
+            <div class="col-12 sm:col-12 md:col-12 lg:col-4 xl:col-4">
+                <p-button
+                    icon="pi pi-filter-fill"
+                    class="w-full"
+                    styleClass="w-full"
+                    pTooltip="Filtrar"
+                    (click)="filter();"/>
+            </div>
+        </div>
+    </ng-template>
+</p-card>

@@ -1,0 +1,38 @@
+:host ::ng-deep {
+    .p-button-icon {
+        font-size: 0.8rem !important;
+    }
+    .p-card {
+        overflow-y: auto;
+        overflow-x: auto;
+    }
+    p-table {
+        overflow-y: auto;
+        height: 310px;
+        display: block;
+        overflow-x: auto !important;
+    }
+    .p-datatable-wrapper {
+        overflow: inherit !important;
+    }
+}
+
+.photos {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
+}
+
+.pi-gender {
+    font-size: 1.5rem;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
+}
+
+.pi-male {
+    color: #2563eb;
+}
+
+.pi-female {
+    color: #f138d5;
+}

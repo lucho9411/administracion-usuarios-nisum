@@ -1,0 +1,20 @@
+.users-icon {
+    font-size: 2.5rem;
+}
+
+:host ::ng-deep {
+    .p-toolbar {
+        height: 60px !important;
+        background-image: radial-gradient(circle at 50% -20.71%, #4fcaee 0, #4fcaee 12.5%, #4ac2e5 25%, #4ac2e5 37.5%, #42b6d8 50%, #31afd3 62.5%, #4881e4 75%, #0046ff 87.5%, #004bff 100%);
+        filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
+    }
+}
+
+.p-toolbar-group-start {
+    position: absolute;
+}
+
+h1, span {
+    color: white;
+    font-weight: 600;
+}

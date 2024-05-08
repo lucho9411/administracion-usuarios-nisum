@@ -1,0 +1,176 @@
+<p-dialog
+    header="{{ title }}"
+    [modal]="true"
+    [(visible)]="visible"
+    [style]="{ width: '50rem' }"
+    [draggable]="false" 
+    [resizable]="false"
+    (onHide)="cancel()">
+    <span class="p-text-secondary block mb-5">{{ subTitle }}</span>
+    <form [formGroup]="form">
+        <p-fieldset>
+            <ng-template pTemplate="header">
+                <div class="flex align-items-center gap-2 px-2">
+                    <i class="pi pi-sign-in"></i>
+                    <span>Datos del Login</span>
+                </div>
+            </ng-template>
+            <div class="grid">
+                <div class="sm:col-12 md:col-4 lg:col-4 xl:col-4">
+                    <label>Correo <span class="required">*</span></label>
+                    <p-inputGroup>
+                        <p-inputGroupAddon>
+                            <i class="pi pi-at"></i>
+                        </p-inputGroupAddon>
+                        <input
+                            pInputText
+                            placeholder="Correo Electrónico"
+                            formControlName="email"
+                            [readonly]="event===2"
+                            [ngClass]="{'inh': event===2, 'hab': event===1}"/>
+                    </p-inputGroup>
+                    @if (form.get('email')?.dirty&&form.get('email')?.invalid) {
+                        <label class="error-message">Información inválida</label>
+                    }
+                </div>
+                <div class="sm:col-12 md:col-4 lg:col-4 xl:col-4">
+                    <label>Usuario <span class="required">*</span></label>
+                    <p-inputGroup>
+                        <p-inputGroupAddon>
+                            <i class="pi pi-user"></i>
+                        </p-inputGroupAddon>
+                        <input
+                            pInputText
+                            placeholder="Usuario"
+                            formControlName="username"
+                            [readonly]="event===2"
+                            [ngClass]="{'inh': event===2, 'hab': event===1}"/>
+                    </p-inputGroup>
+                    @if (form.get('username')?.dirty&&form.get('username')?.invalid) {
+                        <label class="error-message">Información inválida</label>
+                    }
+                </div>
+                <div class="sm:col-12 md:col-4 lg:col-4 xl:col-4">
+                    <label>Clave <span class="required">*</span></label>
+                    <p-inputGroup>
+                        <p-inputGroupAddon>
+                            <i class="pi pi-lock"></i>
+                        </p-inputGroupAddon>
+                        <p-password
+                            placeholder="Clave"
+                            formControlName="password"
+                            [feedback]="false" />
+                    </p-inputGroup>
+                    @if (form.get('password')?.dirty&&form.get('password')?.invalid) {
+                        <label class="error-message">Información inválida</label>
+                    }
+                </div>
+            </div>
+        </p-fieldset><br>
+        <p-fieldset>
+            <ng-template pTemplate="header">
+                <div class="flex align-items-center gap-2 px-2">
+                    <i class="pi pi-id-card"></i>
+                    <span>Datos de Identificación</span>
+                </div>
+            </ng-template>
+            <div class="grid">
+                <div class="sm:col-12 md:col-4 lg:col-4 xl:col-4">
+                    <label>Estimado <span class="required">*</span></label><br>
+                    <p-dropdown
+                        appendTo="body"
+                        [style]="{'font-size':'1rem !important', 'width': '100%'}"
+                        [options]="representation"
+                        placeholder="Seleccionar opción"
+                        formControlName="representation"/>
+                    @if (form.get('representation')?.dirty&&form.get('representation')?.invalid) {
+                        <label class="error-message">Información inválida</label>
+                    }
+                </div>
+                <div class="sm:col-12 md:col-4 lg:col-4 xl:col-4">
+                    <label>Nombres <span class="required">*</span></label>
+                    <p-inputGroup>
+                        <p-inputGroupAddon>
+                            <i class="pi pi-language"></i>
+                        </p-inputGroupAddon>
+                        <input
+                            pInputText
+                            placeholder="Nombres"
+                            formControlName="names"/>
+                    </p-inputGroup>
+                    @if (form.get('names')?.dirty&&form.get('names')?.invalid) {
+                        <label class="error-message">Información inválida</label>
+                    }
+                </div>
+                <div class="sm:col-12 md:col-4 lg:col-4 xl:col-4">
+                    <label>Apellidos <span class="required">*</span></label>
+                    <p-inputGroup>
+                        <p-inputGroupAddon>
+                            <i class="pi pi-language"></i>
+                        </p-inputGroupAddon>
+                        <input
+                            pInputText
+                            placeholder="Apellidos"
+                            formControlName="lastnames"/>
+                    </p-inputGroup>
+                    @if (form.get('lastnames')?.dirty&&form.get('lastnames')?.invalid) {
+                        <label class="error-message">Información inválida</label>
+                    }
+                </div>
+            </div>
+        </p-fieldset><br>
+        <p-fieldset>
+            <ng-template pTemplate="header">
+                <div class="flex align-items-center gap-2 px-2">
+                    <i class="pi pi-info-circle"></i>
+                    <span>Otros Datos</span>
+                </div>
+            </ng-template>
+            <div class="grid">
+                <div class="sm:col-12 md:col-6 lg:col-6 xl:col-6">
+                    <label>Género <span class="required">*</span></label><br><br>
+                    <p-radioButton 
+                        name="gender" 
+                        value="male"
+                        formControlName="gender"/>
+                    <label for="gender1" class="ml-2">
+                        <i class="pi pi-mars"></i>
+                    </label>
+                    <p-radioButton 
+                        name="gender" 
+                        value="female"
+                        formControlName="gender"/>
+                    <label for="gender2" class="ml-2">
+                        <i class="pi pi-venus"></i>
+                    </label>
+                    @if (form.get('gender')?.dirty&&form.get('gender')?.invalid) {
+                        <label class="error-message">Información inválida</label>
+                    }
+                </div>
+                <div class="sm:col-12 md:col-6 lg:col-6 xl:col-6">
+                    <label>Celular <span class="required">*</span></label>
+                    <p-inputMask
+                        mask="999-999-9999" 
+                        placeholder="999-999-9999"
+                        formControlName="cell"/><br>
+                    @if (form.get('cell')?.dirty&&form.get('cell')?.invalid) {
+                        <label class="error-message">Información inválida</label>
+                    }
+                </div>
+            </div>
+        </p-fieldset>
+    </form>
+    <br>
+    <div class="flex justify-content-end gap-2">
+        <p-button
+            icon="pi pi-times"
+            severity="secondary"
+            pTooltip="Cancelar"
+            (click)="cancel();"/>
+        <p-button
+            icon="pi pi-save"
+            pTooltip="Cancelar"
+            [disabled]="form.invalid"
+            (click)="save();" />
+    </div>
+</p-dialog>

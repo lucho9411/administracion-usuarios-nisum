@@ -1,0 +1,14 @@
+.col-gender {
+    display: flex;
+    align-items: center;
+}
+
+:host ::ng-deep {
+    .p-button-icon {
+        font-size: 0.8rem !important;
+    }
+    .p-card {
+        overflow-y: auto;
+        overflow-x: auto;
+    }
+}

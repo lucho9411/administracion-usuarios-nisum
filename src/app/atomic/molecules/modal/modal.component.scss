@@ -1,0 +1,51 @@
+:host ::ng-deep {
+    .p-button-icon {
+        font-size: 0.8rem !important;
+    }
+    .p-card {
+        overflow-y: auto;
+        overflow-x: auto;
+    }
+
+    input, .p-inputtext {
+        width: 100% !important;
+    }
+
+    .p-fieldset .p-fieldset-legend {
+        padding: 0.5rem !important;
+    }
+
+    fieldset {
+        filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
+    }
+
+    .p-inputgroup .p-inputwrapper {
+        width: 100% !important;
+    }
+
+    .p-dropdown-label {
+        font-size: 1rem !important;
+    }
+}
+
+span {
+    font-size: 1.2rem !important;
+}
+
+.error-message {
+    color: red !important;
+    font-size: 1rem !important;
+}
+
+.required {
+    color: red;
+    font-size: 1rem;
+}
+
+.inh {
+    background-color: lightgray;
+}
+
+.hab {
+    background-color: transparent;
+}

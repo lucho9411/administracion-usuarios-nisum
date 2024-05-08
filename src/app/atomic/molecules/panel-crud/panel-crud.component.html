@@ -1,0 +1,81 @@
+<p-card header="Panel de Administración">    
+    <p-table
+        [lazy]="true"
+        [value]="usersFilter"
+        [tableStyle]="{'min-width': '60rem', 'height': '165px'}"
+        [scrollable]="true">
+        <ng-template pTemplate="caption">
+            <div class="flex align-items-center justify-content-between">
+                <p-button
+                    icon="pi pi-plus"
+                    pTooltip="Agregar Usuario"
+                    (click)="addUser(1);">
+                </p-button>
+                <p-button
+                    icon="pi pi-refresh"
+                    pTooltip="Actualizar Tabla"
+                    tooltipPosition="left"
+                    severity="secondary"
+                    (click)="reLoad();"/>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="min-width:80px" pFrozenColumn>Foto</th>
+                <th>Usuario</th>
+                <th>Correo</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Género</th>
+                <th>Celular</th>
+                <th style="min-width:80px" alignFrozen="right" pFrozenColumn [frozen]="true">Acciones</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user>
+            <tr>
+                <td style="min-width:80px" pFrozenColumn>
+                    @if (user?.picture?.large&&user?.picture?.large!==null) {
+                        <img src="{{user?.picture?.large}}" class="photos"/>
+                    }
+                    @else {
+                        <img src="../../../../assets/user.png" class="photos"/>
+                    }
+                </td>
+                <td>{{user.login.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.name.first}}</td>
+                <td>{{user.name.last}}</td>
+                <td>
+                    @if (user.gender==='male') {
+                        <i class="pi pi-mars pi-male pi-gender"></i>
+                    }
+                    @else {
+                        <i class="pi pi-venus pi-female pi-gender"></i>
+                    }
+                </td>
+                <td>{{user.cell}}</td>
+                <td style="min-width:100px" alignFrozen="right" pFrozenColumn [frozen]="true">
+                    <p-button
+                        severity="warning"
+                        icon="pi pi-pencil"
+                        pTooltip="Editar Usuario"
+                        tooltipPosition="left"
+                        (click)="addUser(2, user);">
+                    </p-button>
+                    <p-button
+                        severity="danger"
+                        icon="pi pi-times"
+                        pTooltip="Eliminar Usuario"
+                        tooltipPosition="left"
+                        (click)="deleteUser(user.email);">
+                    </p-button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">
+                Total {{usersFilter ? usersFilter.length : 0 }} usuario(s).
+            </div>
+        </ng-template>
+    </p-table>
+</p-card>
